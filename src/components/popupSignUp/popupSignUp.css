@@ -1,0 +1,38 @@
+.popup-signup {
+  display: flex;
+  flex-direction: column;
+  background-color: purple;
+  width: 16rem;
+  height: 10rem;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: auto;
+  border-radius: 1rem;
+  border: 1px solid black;
+  z-index: 99;
+  margin-top: 15rem;
+  margin-bottom: 15rem;
+}
+
+.popup-text {
+  margin-top: 2rem;
+  font-size: medium;
+  font-weight: bold;
+  color: white;
+}
+
+.popup-button {
+  margin-top: 0rem;
+  height: 2.4rem;
+  font-size: medium;
+  width: 10rem;
+}
+
+.popup-button:hover {
+  background-color: darkred;
+  color: white;
+  transition: 0.3s;
+}

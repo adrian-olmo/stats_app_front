@@ -1,7 +1,7 @@
 export const fetchCreatePlayer = async (name, age, matches, debut, team_id, position_id) => {
 
     try {
-        const urlNewPlayer = 'http://localhost:8000/api/admin/new-player'
+        const urlNewPlayer = process.env.REACT_APP_UrlNewPlayer
         let result = await fetch(urlNewPlayer, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('session') },

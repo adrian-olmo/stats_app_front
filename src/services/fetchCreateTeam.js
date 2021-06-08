@@ -2,7 +2,7 @@ export const fetchCreateTeam = async (name, confederation, manager, fifa_rank, t
 
 
     try {
-        const urlNewTeam = 'http://localhost:8000/api/admin/new-team'
+        const urlNewTeam = process.env.REACT_APP_UrlNewTeam
         let result = await fetch(urlNewTeam, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('session') },

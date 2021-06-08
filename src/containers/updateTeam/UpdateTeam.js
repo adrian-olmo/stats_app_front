@@ -44,7 +44,7 @@ export const UpdateTeam = () => {
             return body
         }
 
-        console.log(clean(body));
+        clean(body);
 
         const result = await fetchUpdateTeam(id, body)
     }

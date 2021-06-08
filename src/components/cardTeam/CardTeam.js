@@ -19,19 +19,17 @@ export const CardTeam = (props) => {
     }
 
     return (
-        <div className='card-team-box'>
-            <div className='card-team'>
-                <div className='team-img'>
-                    <img src={props.logo} />
-                </div>
-
-                <p>{props.name}</p>
-                <p>{props.confederation}</p>
-
-                <button className='button button-card' onClick={() => handlerId()}>Ver Mas</button>
-                <br></br>
-                <button className='button button-card' onClick={() => handlerEdit()}>Editar Equipo</button>
+        <div className="card">
+            <div className="card_image">
+                <img src={props.logo} />
             </div>
-        </div >
+            <div className="card_content">
+                <h2 className="card_title">{props.name}</h2>
+                <p className="card_text">{props.confederation}</p>
+                <button className="card_btn" onClick={() => handlerId()}>Ver mas</button>
+                <br />
+                <button className="card_btn" onClick={() => handlerEdit()}>Editar datos</button>
+            </div>
+        </div>
     )
 }

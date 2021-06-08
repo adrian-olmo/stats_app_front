@@ -41,11 +41,12 @@ export const FormPlayer = (props) => {
         }
     }
 
+
     return (
         <>
             <div className='container'>
                 <h2><strong>{props.message}</strong></h2>
-                <form>
+                <form onSubmit={(e) => props.submitFunction(props.id, e)}>
                     <ul className="flex-outer">
 
                         <li>
@@ -84,7 +85,7 @@ export const FormPlayer = (props) => {
                         <li>
                             {props.typeCrudAction == 'UPDATE' &&
                                 <>
-                                    <button type="submit" className='update' onClick={() => props.submitFunction(props.id, name, age, matches, debut, team_id, position_id)}>Actualizar</button>
+                                    <button type="submit" className='update' >Actualizar</button>
                                     <button type="submit" className='delete' onClick={() => deletePlayer(props.id)}>Borrar</button>
                                 </>
                             }

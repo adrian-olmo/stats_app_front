@@ -39,60 +39,50 @@ export const TeamDetail = (props) => {
     return (
 
         <div className='container'>
-            <div className='team-card'>
-                <div className='team-image'>
+            <div class="team-card">
+                <div className="team-tumb">
                     <img src={detail.logo} />
-                </div>
+                    <div className="product-details">
+                        <h4>Nombre: {detail.name}</h4>
+                        <br />
+                        <h4>Manager: {detail.manager}</h4>
+                        <br />
+                        <h4>Ranking Fifa: {detail.fifa_rank}</h4>
+                        <br />
+                        <h4>Confederacion: {detail.confederation}</h4>
+                        <br />
+                        <h4>Titulos Internacionales: {detail.total_titles}</h4>
 
-                <div className='team-data'>
-                    <div className="title-content">
-                        <p>Equipo: </p>
-                        <p>Manager: </p>
-                        <p>Ranking Fifa:</p>
-                        <p>Confederacion:</p>
-                        <p>Titulos Internacionales:</p>
                     </div>
-                    <div className="title-data">
-                        <p>{detail.name} </p>
-                        <p>{detail.manager} </p>
-                        <p>#{detail.fifa_rank} </p>
-                        <p>{detail.confederation}</p>
-                        <p>{detail.total_titles}</p>
+
+                </div>
+            </div>
+
+            {player.map(jugador => <div className='plantilla'>
+                <div class="product-card">
+                    <div className="product-tumb">
+                        <img src="https://img.a.transfermarkt.technology/portrait/header/17965-1465213375.jpg?lm=1" alt="" />
+                    </div>
+                    <div className="product-details">
+                        <span className="product-catagory">{jugador.position}</span>
+                        <h4>{jugador.name}, {jugador.age}</h4>
+                        <br />
+                        <p><strong>Partidos con la seleccion: </strong></p>
+                        <p>{jugador.matches}</p>
+                        <p><strong>Debut con la seleccion:</strong></p>
+                        <p>{jugador.debut}</p>
+                        <p>Editar Datos</p>
+
+
                     </div>
                 </div>
             </div>
 
-            <h2><strong>Plantilla: </strong></h2>
-            <div className='btn-container'>
-                <p className='btn createPlayer' onClick={createPlayer}>Inroducir Jugador</p>
+            )}
 
-            </div>
-            {player.map(jugador =>
-                <div className='player-card'>
-                    <div className='player-content'>
-                        <p className='title'>Jugador </p>
-                        <p className='data'>{jugador.name}</p>
 
-                    </div>
 
-                    <div className='player-content'>
-                        <p className='title'>Edad </p>
-                        <p className='data'>{jugador.age} </p>
-                    </div>
-                    <div className='player-content'>
-                        <p className='title'>Partidos Seleccion </p>
-                        <p className='data'>{jugador.matches}</p>
-                        <p className='updatePlayer' onClick={() =>updatePlayer(jugador.id)}>Actualizar Datos Jugador</p>
-                    </div>
-                    <div className='player-content'>
-                        <p className='title'>Debut </p>
-                        <p className='data'>{jugador.debut} </p>
-                    </div>
-                    <div className='player-content'>
-                        <p className='title'>Posicion </p>
-                        <p className='data'>{jugador.position} </p>
-                    </div>
-                </div>)}
+
         </div>
 
     )

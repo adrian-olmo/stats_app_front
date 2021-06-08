@@ -1,38 +1,111 @@
-.card-team-box {
-  background-color: var(--posy);
-  padding: 2rem;
-  max-width: 14rem;
-  margin: auto;
-  border-radius: 1rem;
-  color: white;
+/* Font */
+@import url("https://fonts.googleapis.com/css?family=Quicksand:400,700");
 
-  .card-team {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Design */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
-    .team-img {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: auto;
-      height: auto;
-    }
+h1 {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+}
 
-    .team-img > img {
-      width: 94%;
-    }
+img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
 
-    .button-card {
-      width: 94%;
-      height: 2rem;
-      font-weight: bold;
-    }
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
-    .button-card:hover {
-      background-color: darkred;
-      color: white;
-      transition: 0.3s;
-    }
+.cards_item {
+  display: flex;
+  padding: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .cards_item {
+    width: 50%;
   }
+  .card_btn {
+    font-size: 10px;
+    width: 20%;
+  }
+}
+
+@media (min-width: 56rem) {
+  .cards_item {
+    width: 33.3333%;
+  }
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card_content {
+  padding: 1rem;
+  width: 100%;
+  background: linear-gradient(to bottom left, #ef8d9c 40%, #ffc39e 100%);
+}
+
+.card_title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  margin: 0px;
+}
+
+.card_text {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.card_btn {
+  color: #ffffff;
+  padding: 0.8rem;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  font-weight: 400;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+}
+
+.card_btn:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.made_by {
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 35px;
+  text-align: center;
 }

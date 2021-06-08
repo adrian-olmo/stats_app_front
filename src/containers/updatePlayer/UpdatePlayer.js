@@ -1,39 +1,61 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 import './UpdatePlayer.scss';
-import { fetchDetail } from "../../services/fetchDetail";
 import { FormPlayer } from "../../components/formPlayer/FormPlayer";
-import { fetchUpdateTeam } from '../../services/fetchUpdateTeam';
 import { Loading } from '../../components/loading/Loading';
+import { fetchUpdatePlayer } from "../../services/fetchUpdatePlayers";
+import { fetchFindPlayer } from '../../services/fetchFindPlayer';
 
 export const UpdatePlayer = () => {
 
     const token = localStorage.getItem('session');
-    const [detail, setDetail] = useState();
+    const [player, setPlayer] = useState();
     let history = useHistory();
     let { id } = useParams();
 
     useEffect(() => {
-        getDetail(id); // TODO: recoger el id que se quiere actualizar de la URL
+        getPlayer(id)
     }, []);
 
-    const getDetail = async (id) => {
-        const result = await fetchDetail(id)
-        setDetail(result)
+    const getPlayer = async (id) => {
+        const playerResult = await fetchFindPlayer(id)
+        setPlayer(playerResult)
     }
 
-    const updateDetail = async (id, name, age, matches, debut, team_id, position_id) => {
+    const updateDetail = async (id, e) => {
+
+
+        const name = e.target.childNodes[0].childNodes[0].childNodes[1].value
+        const age = e.target.childNodes[0].childNodes[1].childNodes[1].value
+        const matches = e.target.childNodes[0].childNodes[2].childNodes[1].value
+        const debut = e.target.childNodes[0].childNodes[3].childNodes[1].value
+        const team_id = e.target.childNodes[0].childNodes[4].childNodes[1].value
+        const position_id = e.target.childNodes[0].childNodes[5].childNodes[1].value
+
+        const body = { name, age, matches, debut, team_id, position_id }
+
         history.push('/teams')
-        const result = await fetchUpdateTeam(id, name, age, matches, debut, team_id, position_id)
+
+        function clean(body) {
+            for (var propName in body) {
+                if (body[propName] === null || body[propName] === undefined || body[propName] === "") {
+                    delete body[propName]
+                }
+            }
+            return body
+        }
+        clean(body);
+
+        const result = await fetchUpdatePlayer(id, body)
     }
 
     return (
         <div className="app-body">
-            {detail &&
-                <FormPlayer typeCrudAction="UPDATE" id={id} submitFunction={updateDetail} details={detail} message="Actualiza los datos del Jugador" />
+            {player &&
+                <FormPlayer typeCrudAction="UPDATE" id={id} submitFunction={updateDetail} details={player} message="Actualiza los datos del Jugador" />
             }
 
-            {!detail &&
+            {!player &&
                 <Loading></Loading>
             }
         </div>

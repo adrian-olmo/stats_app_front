@@ -1,164 +1,145 @@
-.container {
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700");
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+a {
+  text-decoration: none;
+}
+
+.plantillas {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+
+.product-card {
+  width: 24rem;
   position: relative;
+  box-shadow: 0 2px 7px #dfdfdf;
+  margin: 50px auto;
+  background: #fafafa;
+}
+.team-card {
   width: 100%;
-  height: 100%;
-
-  .team-card {
-    display: flex;
-    justify-content: left;
-    position: relative;
-    overflow: hidden;
-    width: 60%;
-    height: auto;
-    margin: 50px auto;
-    background-color: var(--posy);
-    border: 5px solid var(--jewel);
-    border-radius: 7.5px;
-
-    .team-image {
-      position: relative;
-      width: 50%;
-      height: 100%;
-      justify-content: center;
-      margin-top: auto;
-    }
-    .team-data {
-      display: flex;
-      flex-direction: row;
-      position: relative;
-      width: 50%;
-
-      .title-content {
-        position: relative;
-        width: auto;
-        height: auto;
-        margin-left: 0.5em;
-        font-size: 20px;
-        text-align: center;
-        font-weight: 100;
-        color: black;
-        font-weight: 700;
-      }
-      .title-data {
-        position: relative;
-        width: auto;
-        height: auto;
-        margin-left: 0.5em;
-        font-size: 20px;
-        text-align: center;
-        font-weight: 100;
-        color: white;
-      }
-    }
-  }
-
-  .btn-container {
-    display: flex;
-    justify-content: center;
-    width: auto;
-
-    .btn {
-      background-color: transparent;
-      border: 2px solid #333;
-      border-radius: 0.6em;
-      color: var(--jewel);
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 400;
-      line-height: 1;
-      margin: 20px;
-      padding: 1.2em 2.8em;
-      text-decoration: none;
-      text-align: center;
-      text-transform: uppercase;
-      font-family: "Montserrat", sans-serif;
-      font-weight: 700;
-    }
-
-    .createPlayer {
-      transition: box-shadow 700ms ease-in-out, color 700ms ease-in-out;
-      &:hover {
-        box-shadow: 0 0 40px 40px var(--ayden) inset;
-        color: whitesmoke;
-      }
-    }
-  }
-
-  .player-card {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    width: 60%;
-    height: auto;
-    margin: 50px auto;
-    background-color: var(--posy);
-    border: 5px solid var(--jewel);
-    border-radius: 7.5px;
-    .player-content {
-      position: relative;
-      flex-direction: row;
-      width: auto;
-      height: auto;
-      margin-left: 1em;
-      font-size: 20px;
-      text-align: center;
-      font-weight: 100;
-    }
-    .title {
-      margin-left: 2em;
-      font-weight: 700;
-    }
-    .data {
-      margin-left: 2em;
-    }
-
-    .updatePlayer {
-      width: auto;
-      border: 2px solid #333;
-      padding: 0.5rem;
-      cursor: pointer;
-      border-radius: 0.6em;
-    }
-
-    .updatePlayer:hover {
-      transition: box-shadow 700ms ease-in-out, color 700ms ease-in-out;
-      &:hover {
-        box-shadow: 0 0 40px 40px var(--jewel) inset;
-        color: whitesmoke;
-      }
-    }
-  }
+  position: relative;
+  margin: 50px auto;
 }
 
-@media (max-width: 1024px) {
-  .card {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .poster-detail > img {
-    width: 100%;
-    height: 1000%;
-  }
+.badge {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 700;
+  background: red;
+  color: #fff;
+  padding: 3px 10px;
 }
 
-@media (max-width: 600px) {
-  .team-card {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+.team-tumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 19rem;
+  padding: 50px;
+  background: #fff;
+}
+.product-tumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  padding: 50px;
+  background: #f0f0f0;
+}
 
-  .team.image > img {
-    width: auto;
-    height: auto;
-  }
+.product-tumb img {
+  max-width: 100%;
+  max-height: 100%;
+}
 
-  .team-data {
-    width: auto;
-    height: auto;
-  }
+.product-details {
+  padding: 30px;
+}
+
+.product-catagory {
+  display: flex;
+  font-size: 12px;
+  justify-content: left;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #ccc;
+  margin-bottom: 18px;
+}
+
+.product-details h4 a {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+  color: #363636;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.product-details h4 a:hover {
+  color: #fbb72c;
+}
+
+.product-details p {
+  font-size: 15px;
+  line-height: 22px;
+  margin-bottom: 18px;
+  color: #999;
+}
+
+.product-bottom-details {
+  overflow: hidden;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.product-bottom-details div {
+  float: left;
+  width: 50%;
+}
+
+.product-price {
+  font-size: 18px;
+  color: #fbb72c;
+  font-weight: 600;
+}
+
+.product-price small {
+  font-size: 80%;
+  font-weight: 400;
+  text-decoration: line-through;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.product-links {
+  text-align: right;
+}
+
+.product-links a {
+  display: inline-block;
+  margin-left: 5px;
+  color: #e1e1e1;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+.product-links a:hover {
+  color: #fbb72c;
 }

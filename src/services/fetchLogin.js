@@ -1,7 +1,7 @@
 export const fetchLogin = async (email, password) => {
 
     try {
-        const urlLogin = REACT_APP_UrlLogin
+        const urlLogin = process.env.REACT_APP_UrlLogin
 
         let result = await fetch(urlLogin, {
             method: 'POST',

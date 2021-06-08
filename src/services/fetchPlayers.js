@@ -1,7 +1,7 @@
 export const fetchPlayer = async (team_id) => {
 
     try {
-        const urlPlayer = `http://localhost:8000/api/players/player-team/${team_id}`
+        const urlPlayer = process.env.REACT_APP_UrlPlayer + `${team_id}`
         let result = await fetch(urlPlayer, {
             method: 'GET',
             headers: {

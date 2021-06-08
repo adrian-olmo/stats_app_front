@@ -1,7 +1,7 @@
 export const fetchUpdatePlayer = async (id, name, age, matches, debut, team_id, position_id) => {
 
     try {
-        const urlUpdatePlayer = `http://localhost:8000/api/admin/player/${id}`
+        const urlUpdatePlayer = process.env.REACT_APP_UrlUpdatePlayer + `${id}`
         let result = await fetch(urlUpdatePlayer, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('session') },

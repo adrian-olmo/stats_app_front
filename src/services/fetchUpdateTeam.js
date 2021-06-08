@@ -1,7 +1,7 @@
 export const fetchUpdateTeam = async (id, body) => {
 
     try {
-        const urlUpdateTeam = `http://localhost:8000/api/admin/team/${id}`
+        const urlUpdateTeam = process.env.REACT_APP_UrlUpdateTeam + `${id}`
         let result = await fetch(urlUpdateTeam, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('session') },

@@ -1,7 +1,8 @@
 export const fetchDetail = async (id) => {
 
     try {
-        const urlTeamDetail = process.env.REACT_APP_URLTeamDetail + `${id}`
+        const urlTeamDetail = process.env.REACT_APP_UrlTeamDetail + `${id}`
+        console.log(urlTeamDetail);
         let result = await fetch(urlTeamDetail, {
             method: 'GET',
             headers: {

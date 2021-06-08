@@ -25,7 +25,7 @@ export const TeamDetail = (props) => {
         history.push('/new-player')
     }
 
-    const updatePlayer = async () => {
+    const updatePlayer = async (id) => {
         history.push(`/change-player/${id}`)
 
     }
@@ -82,7 +82,7 @@ export const TeamDetail = (props) => {
                     <div className='player-content'>
                         <p className='title'>Partidos Seleccion </p>
                         <p className='data'>{jugador.matches}</p>
-                        <p className='updatePlayer' onClick={updatePlayer}>Actualizar Datos Jugador</p>
+                        <p className='updatePlayer' onClick={() =>updatePlayer(jugador.id)}>Actualizar Datos Jugador</p>
                     </div>
                     <div className='player-content'>
                         <p className='title'>Debut </p>

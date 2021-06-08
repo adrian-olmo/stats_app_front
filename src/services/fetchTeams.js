@@ -2,9 +2,7 @@ import dotenv from "dotenv";
 export const fetchTeams = async () => {
 
     try {
-        /* const urlTeams = 'http://localhost:8000/api/teams' */
-        /* dotenv.congif();*/
-        const urlTeams = process.env.REACT_APP_UrlTeams; 
+        const urlTeams = process.env.REACT_APP_UrlTeams;
 
         let result = await fetch(urlTeams, {
             method: 'GET',

@@ -1,7 +1,7 @@
 export const fetchLogin = async (email, password) => {
 
     try {
-        const urlLogin = 'http://localhost:8000/api/auth/login'
+        const urlLogin = REACT_APP_UrlLogin
 
         let result = await fetch(urlLogin, {
             method: 'POST',

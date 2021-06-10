@@ -17,7 +17,7 @@ import { UpdatePlayer } from './containers/updatePlayer/UpdatePlayer';
 import { Matches } from './containers/matches/Matches';
 import { CreateMatch } from './containers/createMatch/CreateMatch';
 import { UpdateMatch } from './containers/updateMatch/UpdateMatch';
-import { UserProfile } from "../src/components/userProfile/UserProfile"
+import { UserProfile } from "./components/userProfile/UserProfile";
 import { FormUser } from './components/formUser/FormUser';
 
 function App() {

@@ -86,7 +86,7 @@ export const Navbar = () => {
                         </Link>}
 
                     {logged &&
-                        <Link to='/user/profile/:id'>
+                        <Link to='/user/profile'>
                             <div className='icons'>
                                 <img src={Profile}></img>
                                 <p>Mi Perfil</p>

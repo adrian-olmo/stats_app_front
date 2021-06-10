@@ -8,13 +8,12 @@ import { Loading } from '../../components/loading/Loading';
 
 export const UpdateTeam = () => {
 
-    const token = localStorage.getItem('session');
     const [detail, setDetail] = useState();
     let history = useHistory();
     let { id } = useParams();
 
     useEffect(() => {
-        getDetail(id); // TODO: recoger el id que se quiere actualizar de la URL
+        getDetail(id);
     }, []);
 
     const getDetail = async (id) => {

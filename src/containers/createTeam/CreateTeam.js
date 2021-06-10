@@ -6,7 +6,6 @@ import { fetchCreateTeam } from '../../services/fetchCreateTeam';
 
 export const CreateTeam = (props) => {
 
-    const token = localStorage.getItem('session');
     let history = useHistory();
 
     const createTeam = async (name, confederation, manager, fifa_rank, total_titles, logo) => {

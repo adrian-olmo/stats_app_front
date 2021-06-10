@@ -8,7 +8,6 @@ import { fetchFindPlayer } from '../../services/fetchFindPlayer';
 
 export const UpdatePlayer = () => {
 
-    const token = localStorage.getItem('session');
     const [player, setPlayer] = useState();
     let history = useHistory();
     let { id } = useParams();

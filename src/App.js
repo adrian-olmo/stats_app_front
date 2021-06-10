@@ -18,6 +18,7 @@ import { Matches } from './containers/matches/Matches';
 import { CreateMatch } from './containers/createMatch/CreateMatch';
 import { UpdateMatch } from './containers/updateMatch/UpdateMatch';
 import { UserProfile } from './components/userProfile/UserProfile';
+import { FormUser } from './components/formUser/FormUser';
 
 function App() {
 
@@ -28,18 +29,19 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" component={Gallery} exact></Route>
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={Login} />
-          <Route path="/teams" component={Teams} />
-          <Route path="/detail/:id" component={TeamDetail} />
-          <Route path="/change-team/:id" component={UpdateTeam} />
-          <Route path="/new-team" component={CreateTeam} />
-          <Route path="/new-player" component={CreatePlayer} />
-          <Route path="/change-player/:id" component={UpdatePlayer} />
-          <Route path="/matches" component={Matches} />
+          <Route path="/signup" component={SignUp} exact />
+          <Route path="/login" component={Login} exact />
+          <Route path="/teams" component={Teams} exact />
+          <Route path="/detail/:id" component={TeamDetail} exact />
+          <Route path="/change-team/:id" component={UpdateTeam} exact />
+          <Route path="/new-team" component={CreateTeam} exact />
+          <Route path="/new-player" component={CreatePlayer} exact />
+          <Route path="/change-player/:id" component={UpdatePlayer} exact />
+          <Route path="/matches" component={Matches} exact />
           <Route path="/new-match" component={CreateMatch} />
-          <Route path="/change-match/:id" component={UpdateMatch} />
-          <Route path="/user/profile/:id" component={UserProfile} />
+          <Route path="/change-match/:id" component={UpdateMatch} exact />
+          <Route path="/user/profile" component={UserProfile} exact />
+          <Route path="/user/profile/data" component={FormUser} exact />
 
         </Switch>
       </BrowserRouter>

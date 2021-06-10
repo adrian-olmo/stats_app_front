@@ -7,7 +7,6 @@ import { FormPlayer } from '../../components/formPlayer/FormPlayer';
 
 export const CreatePlayer = (props) => {
 
-    const token = localStorage.getItem('session');
     let history = useHistory();
 
     const createPlayer = async (name, age, matches, debut, team_id, position_id) => {

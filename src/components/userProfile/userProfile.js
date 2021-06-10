@@ -3,12 +3,12 @@ import Profile from "../../utils/profile-user.png";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";
 import { fetchFindUser } from "../../services/fetchFindUser";
+import { getUser } from "../../services/fetchGetUser";
 
 export const UserProfile = () => {
 
     let history = useHistory();
     const [user, setUser] = useState([])
-    let id = 
 
 
     useEffect(async () => {
@@ -17,11 +17,15 @@ export const UserProfile = () => {
 
     const getUserLogged = async () => {
         try {
-            const result = await fetchFindUser()
+            let result = await getUser()
             setUser(result);
         } catch (error) {
-
+            console.log(error);
         }
+    }
+
+    const handlerProfile = () => {
+        history.push('/user/profile/data');
     }
 
     return (
@@ -38,12 +42,12 @@ export const UserProfile = () => {
                         <span className="product-catagory">Datos de Usuario</span>
                         <h4>Nombre:</h4>
                         <br />
-                        <p><strong>Nombre</strong></p>
+                        <p><strong>{user.name}</strong></p>
                         <h4>Email:</h4>
                         <br />
-                        <p><strong>Email</strong></p>
+                        <p><strong>{user.email}</strong></p>
                         <br />
-                        <p className='updateData'><strong>Actualizar Datos</strong></p>
+                        <p className='updateData' onClick={handlerProfile}><strong>Actualizar Datos</strong></p>
                     </div>
                 </div>
             </div>

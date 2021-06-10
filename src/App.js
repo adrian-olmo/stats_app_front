@@ -17,7 +17,7 @@ import { UpdatePlayer } from './containers/updatePlayer/UpdatePlayer';
 import { Matches } from './containers/matches/Matches';
 import { CreateMatch } from './containers/createMatch/CreateMatch';
 import { UpdateMatch } from './containers/updateMatch/UpdateMatch';
-import { userProfile } from './components/userProfile/userProfile';
+import { UserProfile } from './components/userProfile/UserProfile';
 
 function App() {
 
@@ -39,11 +39,9 @@ function App() {
           <Route path="/matches" component={Matches} />
           <Route path="/new-match" component={CreateMatch} />
           <Route path="/change-match/:id" component={UpdateMatch} />
-          <Route path="/profile" component={userProfile} />
+          <Route path="/user/profile/:id" component={UserProfile} />
 
         </Switch>
-
-        {/*       <Footer /> */}
       </BrowserRouter>
 
     </div>

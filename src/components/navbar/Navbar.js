@@ -1,6 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import './Navbar.css'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { getRole } from "../../services/fetchGetRole";
 import Home from "../../utils/home.png";
 import Team from "../../utils/team.png";
@@ -15,6 +15,7 @@ export const Navbar = () => {
     const [logged, setLogged] = useState(false);
     const [admin, setAdmin] = useState(false);
     const [basic, setBasic] = useState(false);
+    let history = useHistory();
 
     useEffect(async () => {
         if (localStorage.getItem('session')) {
@@ -33,6 +34,10 @@ export const Navbar = () => {
         }
     }, [])
 
+    const handlerLogOut = () => {
+        localStorage.removeItem('session');
+        history.push('/')
+    }
 
 
     return (
@@ -81,7 +86,7 @@ export const Navbar = () => {
                         </Link>}
 
                     {logged &&
-                        <Link to='/profile'>
+                        <Link to='/user/profile/:id'>
                             <div className='icons'>
                                 <img src={Profile}></img>
                                 <p>Mi Perfil</p>
@@ -89,12 +94,10 @@ export const Navbar = () => {
                         </Link>}
 
                     {logged &&
-                        <Link to='/profile'>
-                            <div className='icons'>
-                                <img src={LogOut}></img>
-                                <p>Cerrar Sesion</p>
-                            </div>
-                        </Link>}
+                        <div onClick={handlerLogOut} className='icons'>
+                            <img src={LogOut}></img>
+                            <p>Cerrar Sesion</p>
+                        </div>}
                 </nav>
             </div>
 

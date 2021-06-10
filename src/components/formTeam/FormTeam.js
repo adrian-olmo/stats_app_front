@@ -18,6 +18,7 @@ export const FormTeam = (props) => {
     const deleteTeam = async (id) => {
         const result = await fetchDeleteTeam(id)
         history.push('/teams')
+
     }
 
     if (props.typeCrudAction == "UPDATE") {

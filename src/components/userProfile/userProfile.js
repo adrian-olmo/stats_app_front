@@ -1,7 +1,28 @@
 import "./userProfile.scss"
 import Profile from "../../utils/profile-user.png";
+import { useHistory } from "react-router";
+import { useEffect, useState } from "react";
+import { fetchFindUser } from "../../services/fetchFindUser";
 
-export const userProfile = () => {
+export const UserProfile = () => {
+
+    let history = useHistory();
+    const [user, setUser] = useState([])
+    let id = 
+
+
+    useEffect(async () => {
+        getUserLogged()
+    }, []);
+
+    const getUserLogged = async () => {
+        try {
+            const result = await fetchFindUser()
+            setUser(result);
+        } catch (error) {
+
+        }
+    }
 
     return (
 
@@ -12,6 +33,7 @@ export const userProfile = () => {
                     <div className="product-tumb">
                         <img src={Profile} alt="" />
                     </div>
+                    {/* {usuario} */}
                     <div className="product-details">
                         <span className="product-catagory">Datos de Usuario</span>
                         <h4>Nombre:</h4>

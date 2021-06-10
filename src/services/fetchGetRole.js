@@ -1,8 +1,8 @@
-export const fetchMatches = async () => {
+export const getRole = async () => {
 
     try {
-        const UrlMatches = process.env.REACT_APP_UrlMatches
-        let result = await fetch(UrlMatches, {
+        const urlRole = process.env.REACT_APP_UrlRole
+        let result = await fetch(urlRole, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -10,8 +10,8 @@ export const fetchMatches = async () => {
                 'Authorization': 'Bearer ' + localStorage.getItem('session')
             }
         })
-        return result.json();
-
+        result = result.json()
+        return result
 
     } catch (error) {
         console.log(error);

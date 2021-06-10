@@ -70,7 +70,6 @@ export function SignUp() {
     const getConfirmPassworddChange = (e) => {
 
         passwordConfirmed = e.target.value
-        console.log(`${password} -- ${passwordConfirmed}`);
 
         if (passwordConfirmed === password) {
             setConfirmPasswordValid(true);
@@ -86,7 +85,6 @@ export function SignUp() {
         e.preventDefault()
 
         if (passwordIsValid && confirmPasswordValid) {
-            console.log(name, email, password);
             const newUser = await fetchSignup(name, email, password);
 
             if (newUser.status === 201) {

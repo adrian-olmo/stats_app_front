@@ -33,7 +33,7 @@ export const UpdateTeam = () => {
 
         const body = { name, confederation, manager, fifa_rank, total_titles, logo }
 
-        history.push('/teams')
+
 
         function clean(body) {
             for (var propName in body) {
@@ -47,6 +47,7 @@ export const UpdateTeam = () => {
         clean(body);
 
         const result = await fetchUpdateTeam(id, body)
+        history.push('/teams')
     }
 
     return (

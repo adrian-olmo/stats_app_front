@@ -1,17 +1,18 @@
-export const fetchMatches = async () => {
+export const fetchUpdateMatch = async (id, body) => {
 
     try {
-        const UrlMatches = process.env.REACT_APP_UrlMatches
-        let result = await fetch(UrlMatches, {
-            method: 'GET',
+        const urlUpdateMatch = process.env.REACT_APP_UrlUpdateMatch + `${id}`
+        let result = await fetch(urlUpdateMatch, {
+            method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('session')
-            }
+            },
+            body: JSON.stringify(body)
         })
+        console.log(result);
         return result.json();
-
 
     } catch (error) {
         console.log(error);

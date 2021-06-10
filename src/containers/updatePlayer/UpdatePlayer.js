@@ -19,6 +19,7 @@ export const UpdatePlayer = () => {
 
     const getPlayer = async (id) => {
         const playerResult = await fetchFindPlayer(id)
+        console.log(playerResult);
         setPlayer(playerResult)
     }
 
@@ -34,7 +35,7 @@ export const UpdatePlayer = () => {
 
         const body = { name, age, matches, debut, team_id, position_id }
 
-        history.push('/teams')
+
 
         function clean(body) {
             for (var propName in body) {
@@ -47,6 +48,7 @@ export const UpdatePlayer = () => {
         clean(body);
 
         const result = await fetchUpdatePlayer(id, body)
+        history.push('/teams')
     }
 
     return (

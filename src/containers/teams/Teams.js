@@ -3,15 +3,20 @@ import { useHistory } from 'react-router';
 import './Teams.scss';
 import { fetchTeams } from "../../services/fetchTeams";
 import { CardTeam } from '../../components/cardTeam/CardTeam';
+import { getRole } from "../../services/fetchGetRole";
 
 export const Teams = () => {
 
     const [teams, setTeams] = useState(null);
-    const token = localStorage.getItem('session');
     let history = useHistory();
+    const [admin, setAdmin] = useState(false);
 
-    useEffect(() => {
+    useEffect(async () => {
         getTeams();
+        let role = await getRole();
+        if (role.role === "admin") {
+            setAdmin(true);
+        }
     }, []);
 
     const newTeam = () => {
@@ -35,7 +40,7 @@ export const Teams = () => {
         <div className="app-body">
             <div className="display-teams">
                 <h2><strong>Listado de Equipos</strong></h2>
-                <button className="btn newTeam" onClick={newTeam}>CREAR EQUIPO</button>
+                {admin && <button className="btn newTeam" onClick={newTeam}>CREAR EQUIPO</button>}
                 <br />
                 <br />
                 {teams && <div className="display-teams-grid">

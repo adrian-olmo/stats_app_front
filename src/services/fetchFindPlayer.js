@@ -11,7 +11,7 @@ export const fetchFindPlayer = async (id) => {
             }
         });
 
-        return result
+        return result.json();
 
     } catch (error) {
         console.log(error);

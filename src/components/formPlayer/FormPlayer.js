@@ -16,8 +16,8 @@ export const FormPlayer = (props) => {
     let { id } = useParams()
 
     const deletePlayer = async (id) => {
-        history.push('/teams')
         const result = await fetchDeletePlayer(id)
+        history.push('/teams')
     }
 
     if (props.typeCrudAction == "UPDATE") {

@@ -52,3 +52,10 @@
     z-index: 99;
   }
 }
+.icons {
+  color: #fff;
+}
+.icons > img {
+  width: 2rem;
+  height: 2rem;
+}

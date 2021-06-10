@@ -1,0 +1,105 @@
+form {
+  margin: auto;
+  max-width: 900px;
+  background-color: #333;
+  margin-bottom: 1rem;
+  padding: 20px;
+  color: #fff;
+}
+
+ul {
+  padding: 0;
+}
+
+.flex-outer li,
+.flex-inner {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.flex-outer > li > label,
+.flex-outer li p {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 120px;
+  -ms-flex: 1 0 120px;
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 220px;
+  -ms-flex: 1 0 220px;
+  flex: 1 0 220px;
+}
+
+.flex-outer li {
+  padding: 10px;
+}
+
+.flex-outer li input,
+.flex-outer li textarea {
+  padding: 10px;
+}
+
+.flex-outer li button {
+  /* display: inline-block; */
+  margin-left: auto;
+  padding: 8px 16px;
+  border: none;
+  background-color: var(--posy);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0.5rem;
+  -webkit-transition: 0.5s box-shadow;
+  transition: 0.5s box-shadow;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.flex-outer li button:hover {
+  border-radius: 1rem;
+  transition: 0.7s;
+}
+.delete:hover {
+  background-color: var(--embers);
+}
+.update:hover {
+  background-color: var(--jewel);
+}
+.create:hover {
+  background-color: var(--ayden);
+}
+.flex-inner li {
+  width: 100px;
+}
+
+.flex-inner {
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.data-group-01 {
+  display: flex;
+  flex-direction: row;
+}
+
+input,
+textarea {
+  border: none;
+  background: #f2f2f2;
+  border-radius: 1rem;
+}

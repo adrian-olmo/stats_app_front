@@ -13,11 +13,6 @@ a {
   text-decoration: none;
 }
 
-.plantillas {
-  display: flex;
-  justify-content: center;
-}
-
 .product-card {
   flex-shrink: 3;
   width: 24rem;
@@ -75,7 +70,7 @@ a {
 .product-catagory {
   display: flex;
   font-size: 12px;
-  justify-content: right;
+  justify-content: left;
   font-weight: 700;
   text-transform: uppercase;
   color: #ccc;
@@ -145,6 +140,7 @@ a {
 }
 
 .btn_update {
+  border: 1px #00000045 solid;
   border-radius: 0.75rem;
   cursor: pointer;
   transition: 500ms;
@@ -162,7 +158,6 @@ a {
   cursor: pointer;
   transition: 500ms;
   padding: 0.5rem;
-  width: auto;
 }
 
 .btn_create:hover {
@@ -170,4 +165,14 @@ a {
   background-color: var(--ayden);
   transition: 700ms;
   cursor: pointer;
+}
+
+.updateData {
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 750ms;
+}
+.updateData:hover {
+  transition: 750ms;
+  color: var(--jewel);
 }

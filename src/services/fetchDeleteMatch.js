@@ -1,17 +1,17 @@
-export const fetchMatches = async () => {
+export const fetchDeleteMatch = async (id) => {
 
     try {
-        const UrlMatches = process.env.REACT_APP_UrlMatches
-        let result = await fetch(UrlMatches, {
-            method: 'GET',
+        const urlDeleteMatch = process.env.REACT_APP_UrlDeleteMatch + `${id}`
+        let result = await fetch(urlDeleteMatch, {
+            method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + localStorage.getItem('session')
             }
-        })
-        return result.json();
+        });
 
+        return result.json();
 
     } catch (error) {
         console.log(error);

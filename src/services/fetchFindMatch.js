@@ -1,8 +1,8 @@
-export const fetchMatches = async () => {
+export const fetchFindMatch = async (id) => {
 
     try {
-        const UrlMatches = process.env.REACT_APP_UrlMatches
-        let result = await fetch(UrlMatches, {
+        const urlFindMatch = process.env.REACT_APP_UrlFindMatch + `${id}`
+        let result = await fetch(urlFindMatch, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -10,6 +10,7 @@ export const fetchMatches = async () => {
                 'Authorization': 'Bearer ' + localStorage.getItem('session')
             }
         })
+
         return result.json();
 
 

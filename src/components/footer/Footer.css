@@ -5,7 +5,7 @@
 }
 
 .footer-distributed {
-  height: 8vh;
+  height: 10vh;
   background-color: #292c2f;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;
@@ -17,8 +17,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* position: relative; */
-  margin-top: auto;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-title {

@@ -10,9 +10,8 @@ export const CreateTeam = (props) => {
     let history = useHistory();
 
     const createTeam = async (name, confederation, manager, fifa_rank, total_titles, logo) => {
-        history.push('/teams')
         const result = await fetchCreateTeam(name, confederation, manager, fifa_rank, total_titles, logo);
-        console.log(result);
+        history.push('/teams')
 
     }
 

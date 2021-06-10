@@ -11,10 +11,8 @@ export const CreatePlayer = (props) => {
     let history = useHistory();
 
     const createPlayer = async (name, age, matches, debut, team_id, position_id) => {
-        console.log('prueba');
-        history.push('/teams')
         const result = await fetchCreatePlayer(name, age, matches, debut, team_id, position_id);
-        console.log(result);
+        history.push('/teams')
 
     }
 

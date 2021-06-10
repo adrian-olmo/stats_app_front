@@ -6,10 +6,14 @@ export const fetchTeams = async () => {
 
         let result = await fetch(urlTeams, {
             method: 'GET',
-            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('session') }
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + localStorage.getItem('session')
+            }
         });
         result = result.json();
-
+        console.log(result);
         return result
 
     } catch (error) {

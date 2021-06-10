@@ -1,4 +1,4 @@
-import "./userProfile.scss"
+import "./UserProfile.scss"
 import Profile from "../../utils/profile-user.png";
 import { useHistory } from "react-router";
 import { useEffect, useState } from "react";

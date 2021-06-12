@@ -26,8 +26,8 @@ export const FormTeam = (props) => {
             name: props.details.name,
             confederation: props.details.confederation,
             manager: props.details.manager,
-            fifa_rank: props.details.rank,
-            total_titles: props.details.titles,
+            fifa_rank: props.details.fifa_rank,
+            total_titles: props.details.total_titles,
             logo: props.details.logo
         }
     }

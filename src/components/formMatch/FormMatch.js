@@ -64,7 +64,7 @@ export const FormMatch = (props) => {
 
                         <li>
                             <label>Fecha del Partido: </label>
-                            <input type="text" placeholder={placeholders.date} onInput={(e) => setDate(e.target.value)} />
+                            <input type="date" placeholder={placeholders.date} onInput={(e) => setDate(e.target.value)} />
                         </li>
 
                         <li>

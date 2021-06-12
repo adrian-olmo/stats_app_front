@@ -67,7 +67,7 @@ export const FormPlayer = (props) => {
 
                         <li>
                             <label>Fecha Debut: </label>
-                            <input type="date" placeholder={placeholders.debut} onInput={(e) => setDebut(e.target.value)} />
+                            <input type="text" placeholder={placeholders.debut} onInput={(e) => setDebut(e.target.value)} />
                         </li>
 
                         <li>

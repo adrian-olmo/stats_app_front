@@ -5,16 +5,16 @@ export const fetchCreatePlayer = async (name, age, matches, debut, team_id, posi
         let result = await fetch(urlNewPlayer, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('session') },
-            body: {
+            body: JSON.stringify({
                 'name': name,
                 'age': age,
                 'matches': matches,
                 'debut': debut,
                 'team_id': team_id,
                 'position_id': position_id
-            }
+            })
         })
-        return result;
+        return result.json();
 
     } catch (error) {
         console.log(error);

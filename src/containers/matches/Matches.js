@@ -53,6 +53,7 @@ export const Matches = () => {
                             <div class="product-card">
                                 <div className="product-details">
                                     <span className="product-catagory">{partidos.Competition}</span>
+                                    <span className="product-catagory">Tipo de Competicion: {partidos.Type}</span>
                                     <h4></h4>
                                     <br />
                                     <p><strong>Equipo Local: </strong></p>

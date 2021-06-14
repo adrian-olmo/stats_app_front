@@ -45,9 +45,9 @@ export const UpdatePlayer = () => {
             return body
         }
         clean(body);
-
         const result = await fetchUpdatePlayer(id, body)
         history.push('/teams')
+
     }
 
     return (

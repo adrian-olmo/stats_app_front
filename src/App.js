@@ -23,8 +23,9 @@ import { FormUser } from './components/formUser/FormUser';
 function App() {
 
   return (
-    <div className="App">
-      <BrowserRouter>
+    <BrowserRouter>
+      <div className="App">
+
 
         <Navbar />
         <Switch>
@@ -44,9 +45,11 @@ function App() {
           <Route path="/user/profile/data" component={FormUser} exact />
 
         </Switch>
-      </BrowserRouter>
 
-    </div>
+
+      </div >
+    </BrowserRouter >
+
   );
 }
 

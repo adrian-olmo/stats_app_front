@@ -14,7 +14,11 @@ export const FormUser = (props) => {
     const [isValid, setIsValid] = useState(false);
     let passwordConfirmed
 
-    let placeholders = {};
+    /* let placeholders = {
+        name: props.details.name,
+        email: props.details.email
+    } */
+
     let history = useHistory();
 
     const getNameChange = (e) => {
@@ -81,15 +85,15 @@ export const FormUser = (props) => {
                     <ul className="flex-outer">
                         <li>
                             <label>Nombre:</label>
-                            <input type="text" placeholder='nombre' onInput={(e) => getNameChange(e)} />
+                            <input type="text" placeholder='name' onInput={(e) => getNameChange(e)} />
                         </li>
                         <li>
                             <label>Email:</label>
                             <input type="text" placeholder='email' onInput={(e) => getEmailChange(e)} />
                         </li>
                         <li>
-                            <label>Contraseña:</label>
-                            <input type="text" placeholder='contraseña' onInput={(e) => getPasswordChange(e)} />
+                            <label>Nueva Contraseña:</label>
+                            <input type="text" placeholder='nueva contraseña' onInput={(e) => getPasswordChange(e)} />
                         </li>
                         <li>
                             <label>Confirmar Contraseña:</label>

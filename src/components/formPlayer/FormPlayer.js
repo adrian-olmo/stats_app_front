@@ -20,6 +20,8 @@ export const FormPlayer = (props) => {
         history.push('/teams')
     }
 
+
+
     if (props.typeCrudAction == "UPDATE") {
         placeholders = {
             name: props.details.name,
@@ -35,8 +37,7 @@ export const FormPlayer = (props) => {
             name: 'Nombre y Primer Apellido del jugador P.Ej: Cristiano Ronalo',
             age: 'Edad del jugador P.Ej: 35',
             matches: 'Numero de partidos con la seleccion P.Ej: 150',
-            debut: 'Fecha del debut (YYYY-MM-DD) P.Ej: 1999-10-02',
-            team_id: 'ID de la seleccion del jugador P.Ej: 5 (Portugal)',
+            team_id: 'BANANA',
             position_id: 'ID de la posicion del jugador P.EJ: 10 (Delantero)',
         }
     }
@@ -67,7 +68,7 @@ export const FormPlayer = (props) => {
 
                         <li>
                             <label>Fecha Debut: </label>
-                            <input type="text" placeholder={placeholders.debut} onInput={(e) => setDebut(e.target.value)} />
+                            <input type="date" onInput={(e) => setDebut(e.target.value)} />
                         </li>
 
                         <li>

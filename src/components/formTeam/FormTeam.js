@@ -36,8 +36,8 @@ export const FormTeam = (props) => {
             name: 'Nombre del equipo P.Ej: España',
             confederation: 'Nombre de la confederacion P.Ej: UEFA',
             manager: 'Nombre del entrenador P.Ej: Mourinho',
-            rank: 'Posicion Ranking Fifa P.Ej: 20',
-            titles: 'Numero de titulos P.Ej: 2',
+            fifa_rank: 'Posicion Ranking Fifa P.Ej: 20',
+            total_titles: 'Numero de titulos P.Ej: 2',
             logo: 'URL Logo o Bandera del equipo',
         }
     }
@@ -66,7 +66,7 @@ export const FormTeam = (props) => {
                         </li>
 
                         <li>
-                            <label for="phone">Ranking Fifa</label>
+                            <label>Ranking Fifa</label>
                             <input type="number" maxLength="4" placeholder={placeholders.fifa_rank} onInput={(e) => setRanking(e.target.value)} />
                         </li>
 

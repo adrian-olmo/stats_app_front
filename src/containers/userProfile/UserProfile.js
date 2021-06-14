@@ -47,7 +47,7 @@ export const UserProfile = () => {
                         <br />
                         <p><strong>{user.email}</strong></p>
                         <br />
-                        <p className='updateData' onClick={handlerProfile}><strong>Actualizar Datos</strong></p>
+                        <p className='updateData' details={user} onClick={handlerProfile}><strong>Actualizar Datos</strong></p>
                     </div>
                 </div>
             </div>

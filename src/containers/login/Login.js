@@ -9,8 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useHistory } from "react-router-dom"
 import { fetchLogin } from "../../services/fetchLogin";
-import { Message } from "../../components/message/Message";
-import { useCookies } from "react-cookie";
+import "./Login.css";
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -39,9 +38,8 @@ export function Login() {
     let history = useHistory();
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [message, setMessage] = useState(null)
-    const [validation, setValidation] = useState(false)
-    const [cookies, setCookies] = useCookies(null)
+    const [error, setError] = useState(0)
+
 
     const getEmail = (e) => {
         setEmail(e.target.value)
@@ -53,25 +51,28 @@ export function Login() {
 
     const loginHandler = async (e) => {
         e.preventDefault()
-        if (email && password) {
-
-            try {
-                const loginUser = await fetchLogin(email, password);
-                localStorage.setItem('session', loginUser.access_token);
-                history.push('/')
-
-            } catch (error) {
-                setMessage('Algo no salio como se esperaba')
-            }
-
-        } else {
-            setMessage('Algo no salio como se esperaba')
+        if (!email || !password) {
+            return setError(2);
         }
+
+        try {
+            const loginUser = await fetchLogin(email, password);
+            if (loginUser.message === 'Unauthorized') return setError(1);
+            localStorage.setItem('session', loginUser.access_token);
+            history.push('/')
+
+        } catch (error) {
+            console.log(error);
+        }
+
+
     }
 
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
+            {error === 1 && <h4 className='loginerror'>El email o la contraseña son incorrectos</h4>}
+            {error === 2 && <h4 className='loginerror'>Rellena todos los campos</h4>}
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
@@ -84,8 +85,6 @@ export function Login() {
 
                     <Button type="submit" fullWidth variant="contained" color="primary" className={classes.submit}
                         onClick={loginHandler}> Iniciar Sesion</Button>
-
-                    <Message msg={message} />
                 </form>
             </div>
 

@@ -3,21 +3,12 @@ import { useHistory, history, useParams } from "react-router";
 import { fetchUpdateUser } from "../../services/fetchUpdateUser";
 import './FormUser.css'
 
-export const FormUser = (props) => {
+export const FormUser = () => {
 
-    const [passwordIsValid, setPasswordIsValid] = useState(false);
-    const [confirmPasswordValid, setConfirmPasswordValid] = useState(false);
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
-    const [message, setMessage] = useState(null);
-    const [isValid, setIsValid] = useState(false);
-    let passwordConfirmed
-
-    /* let placeholders = {
-        name: props.details.name,
-        email: props.details.email
-    } */
+    const [error, setError] = useState(0);
 
     let history = useHistory();
 
@@ -30,58 +21,38 @@ export const FormUser = (props) => {
     }
 
     const getPasswordChange = (e) => {
-        if (e.target.value.length < 6) {
-            setMessage('La contraseña debe tener al menos 6 caracteres')
-            setPassword(false);
-        } else {
-            setPassword(e.target.value)
-            setMessage("")
-            setPasswordIsValid(true)
-        }
+        setPassword(e.target.value)
     }
-    const getConfirmPassworddChange = (e) => {
-
-        passwordConfirmed = e.target.value
-
-        if (passwordConfirmed === password) {
-            setConfirmPasswordValid(true);
-            setMessage("");
-        } else {
-            setConfirmPasswordValid(false)
-            setMessage('Las contraseñas no coinciden')
-        }
-        console.log(e.target.value);
-    }
-
     const updateHandler = async (e) => {
         e.preventDefault()
+        const body = { name, email, password }
 
-        if (passwordIsValid && confirmPasswordValid) {
-            const newUser = await fetchUpdateUser(name, email, password);
+        function clean(body) {
+            for (var propName in body) {
+                if (body[propName] === null || body[propName] === undefined || body[propName] === "") {
+                    delete body[propName]
+                }
+            }
+            return body
+        }
+        clean(body);
 
-            if (newUser.status === 201) {
-                setIsValid(true);
-                setMessage("El registro se realizó correctamente");
-            }
-            else if (newUser.status === 409) {
-                setMessage("El email ya está en uso");
-            }
-            else {
-                setMessage("Algo fue mal durante la actualizacion");
-            }
-        } else {
-            setMessage("El formulario no está cumplimentado correctamente");
+        const newUser = await fetchUpdateUser(body);
+        if (newUser.message !== 'Updated Succesfully') {
+            return setError(1)
         }
 
         history.push('/user/profile')
+
     }
 
     return (
         <>
             <div className='container'>
-                <h2><strong>{props.message}</strong></h2>
+                {error === 1 && <h4>Fallo al actualizar</h4>}
+                <h2><strong>Actualiza tus datos</strong></h2>
                 <br />
-                <form onSubmit={(e) => props.submitFunction(props.id, e)}>
+                <form onSubmit={(e) => updateHandler(e)}>
                     <ul className="flex-outer">
                         <li>
                             <label>Nombre:</label>
@@ -93,14 +64,8 @@ export const FormUser = (props) => {
                         </li>
                         <li>
                             <label>Nueva Contraseña:</label>
-                            <input type="text" placeholder='nueva contraseña' onInput={(e) => getPasswordChange(e)} />
+                            <input type="password" placeholder='nueva contraseña' onInput={(e) => getPasswordChange(e)} />
                         </li>
-                        <li>
-                            <label>Confirmar Contraseña:</label>
-                            <input type="text" placeholder='confirmar contraseña' onInput={(e) => getConfirmPassworddChange(e)} />
-                        </li>
-
-
                         <br></br>
 
                         <li>

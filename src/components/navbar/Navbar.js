@@ -10,16 +10,16 @@ import LogOut from "../../utils/logout.png";
 import LogIn from "../../utils/login.png";
 import SignUp from "../../utils/signup.png";
 
-export const Navbar = () => {
+export const Navbar = (props) => {
 
-    const [logged, setLogged] = useState(false);
     const [admin, setAdmin] = useState(false);
     const [basic, setBasic] = useState(false);
     let history = useHistory();
 
     useEffect(async () => {
         if (localStorage.getItem('session')) {
-            setLogged(true)
+
+
         }
         let role = await getRole();
 
@@ -36,6 +36,7 @@ export const Navbar = () => {
 
     const handlerLogOut = () => {
         localStorage.removeItem('session');
+        props.setLoggedApp(false)
         history.push('/')
     }
 
@@ -46,14 +47,14 @@ export const Navbar = () => {
             <div className='navbar-header'>
                 <nav className='navbar'>
 
-                    {!logged &&
+                    {!props.logged &&
                         <Link to='/login'>
                             <div className='icons'>
                                 <img src={LogIn}></img>
                                 <p>Iniciar Sesion</p>
                             </div>
                         </Link>}
-                    {!logged &&
+                    {!props.logged &&
                         <Link to='/signup'>
                             <div className='icons'>
                                 <img src={SignUp}></img>
@@ -61,7 +62,7 @@ export const Navbar = () => {
                             </div>
                         </Link>}
 
-                    {logged &&
+                    {props.logged &&
                         <Link to='/'>
                             <div className='icons'>
                                 <img src={Home}></img>
@@ -69,7 +70,7 @@ export const Navbar = () => {
                             </div>
                         </Link>}
 
-                    {logged &&
+                    {props.logged &&
                         <Link to='/teams'>
                             <div className='icons'>
                                 <img src={Team}></img>
@@ -77,7 +78,7 @@ export const Navbar = () => {
                             </div>
                         </Link>}
 
-                    {logged &&
+                    {props.logged &&
                         <Link to='/matches'>
                             <div className='icons'>
                                 <img src={Match}></img>
@@ -85,7 +86,7 @@ export const Navbar = () => {
                             </div>
                         </Link>}
 
-                    {logged &&
+                    {props.logged &&
                         <Link to='/user/profile'>
                             <div className='icons'>
                                 <img src={Profile}></img>
@@ -93,7 +94,7 @@ export const Navbar = () => {
                             </div>
                         </Link>}
 
-                    {logged &&
+                    {props.logged &&
                         <div onClick={handlerLogOut} className='icons'>
                             <img src={LogOut}></img>
                             <p>Cerrar Sesion</p>

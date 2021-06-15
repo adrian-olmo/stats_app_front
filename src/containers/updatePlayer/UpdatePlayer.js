@@ -9,6 +9,7 @@ import { fetchFindPlayer } from '../../services/fetchFindPlayer';
 export const UpdatePlayer = () => {
 
     const [player, setPlayer] = useState();
+    const [error, setError] = useState(0);
     let history = useHistory();
     let { id } = useParams();
 
@@ -46,6 +47,9 @@ export const UpdatePlayer = () => {
         }
         clean(body);
         const result = await fetchUpdatePlayer(id, body)
+        if (result.message !== 'Updated Succesfully') {
+            return setError(1)
+        }
         history.push('/teams')
 
     }

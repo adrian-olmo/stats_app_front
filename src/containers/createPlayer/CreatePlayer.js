@@ -8,10 +8,13 @@ import { FormPlayer } from '../../components/formPlayer/FormPlayer';
 export const CreatePlayer = (props) => {
 
     let history = useHistory();
+    const [error, setError] = useState(0)
 
     const createPlayer = async (name, age, matches, debut, team_id, position_id) => {
         const result = await fetchCreatePlayer(name, age, matches, debut, team_id, position_id);
-        console.log(result);
+        if (result.message !== 'Created Succesfully') {
+            return setError(1)
+        }
         history.push('/teams')
 
 

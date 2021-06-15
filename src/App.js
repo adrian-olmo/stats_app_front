@@ -19,19 +19,32 @@ import { CreateMatch } from './containers/createMatch/CreateMatch';
 import { UpdateMatch } from './containers/updateMatch/UpdateMatch';
 import { UserProfile } from "./containers/userProfile/UserProfile";
 import { FormUser } from './components/formUser/FormUser';
+import { useEffect, useState } from 'react';
 
 function App() {
+
+  const [logged, setLogged] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem('session')) {
+      setLogged(true);
+    }
+
+
+  })
 
   return (
     <BrowserRouter>
       <div className="App">
 
 
-        <Navbar />
+        <Navbar setLoggedApp={setLogged} logged={logged} />
         <Switch>
           <Route path="/" component={Gallery} exact></Route>
           <Route path="/signup" component={SignUp} exact />
-          <Route path="/login" component={Login} exact />
+          <Route path="/login">
+            <Login setLoggedApp={setLogged} />
+          </Route>
           <Route path="/teams" component={Teams} exact />
           <Route path="/detail/:id" component={TeamDetail} exact />
           <Route path="/change-team/:id" component={UpdateTeam} exact />

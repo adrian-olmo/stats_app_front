@@ -7,9 +7,13 @@ import { fetchCreateTeam } from '../../services/fetchCreateTeam';
 export const CreateTeam = (props) => {
 
     let history = useHistory();
+    const [error, setError] = useState(0)
 
     const createTeam = async (name, confederation, manager, fifa_rank, total_titles, logo) => {
         const result = await fetchCreateTeam(name, confederation, manager, fifa_rank, total_titles, logo);
+        if (result.message !== 'Created Succesfully') {
+            return setError(1)
+        }
         history.push('/teams')
 
     }

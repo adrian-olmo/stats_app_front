@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function Login() {
+export function Login(props) {
 
     const classes = useStyles();
 
@@ -59,6 +59,7 @@ export function Login() {
             const loginUser = await fetchLogin(email, password);
             if (loginUser.message === 'Unauthorized') return setError(1);
             localStorage.setItem('session', loginUser.access_token);
+            props.setLoggedApp(true)
             history.push('/')
 
         } catch (error) {

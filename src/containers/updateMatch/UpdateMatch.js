@@ -9,6 +9,7 @@ import { fetchUpdateMatch } from '../../services/fetchUpdateMatch';
 export const UpdateMatch = () => {
 
     const [match, setMatch] = useState();
+    const [error, setError] = useState(0);
     let { id } = useParams();
     let history = useHistory();
 
@@ -48,12 +49,16 @@ export const UpdateMatch = () => {
 
 
         const result = await fetchUpdateMatch(id, body)
+        if (result.message !== 'Updated Succesfully') {
+            return setError(1)
+        }
         history.push('/matches')
 
     }
 
     return (
         <div className="app-body">
+
             {match &&
                 <FormMatch typeCrudAction="UPDATE" id={id} submitFunction={updateMatch} details={match} message="Actualiza los datos de un partido" />
             }

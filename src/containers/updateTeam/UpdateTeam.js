@@ -9,6 +9,7 @@ import { Loading } from '../../components/loading/Loading';
 export const UpdateTeam = () => {
 
     const [detail, setDetail] = useState();
+    const [error, setError] = useState(0);
     let history = useHistory();
     let { id } = useParams();
 
@@ -46,6 +47,9 @@ export const UpdateTeam = () => {
         clean(body);
 
         const result = await fetchUpdateTeam(id, body)
+        if (result.message !== 'Updated Succesfully') {
+            return setError(1)
+        }
         history.push('/teams')
     }
 

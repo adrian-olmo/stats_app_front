@@ -9,7 +9,8 @@ import { fetchFindPlayer } from '../../services/fetchFindPlayer';
 export const UpdatePlayer = () => {
 
     const [player, setPlayer] = useState();
-    const [error, setError] = useState(0);
+    const [error, setError] = useState(0)
+    const [validate, setValidate] = useState(0)
     let history = useHistory();
     let { id } = useParams();
 
@@ -19,7 +20,6 @@ export const UpdatePlayer = () => {
 
     const getPlayer = async (id) => {
         const playerResult = await fetchFindPlayer(id)
-        console.log(playerResult);
         setPlayer(playerResult)
     }
 
@@ -46,23 +46,34 @@ export const UpdatePlayer = () => {
             return body
         }
         clean(body);
+
         const result = await fetchUpdatePlayer(id, body)
-        if (result.message !== 'Updated Succesfully') {
-            return setError(1)
-        }
+        console.log(result);
         history.push('/teams')
+        /* if (result.status !== 205) {
+            return setError(1)
+        } else {
+            
+            return setValidate(1)
+
+        } */
+
 
     }
 
     return (
         <div className="app-body">
-            {player &&
+            {/* {error === 1 && <h4>Fallo al actualizar</h4>}
+            {validate === 1 && <h4>Equipo Actualizado</h4>} */}
+            {
+                player &&
                 <FormPlayer typeCrudAction="UPDATE" id={id} submitFunction={updateDetail} details={player} message="Actualiza los datos del Jugador" />
             }
 
-            {!player &&
+            {
+                !player &&
                 <Loading></Loading>
             }
-        </div>
+        </div >
     )
 }

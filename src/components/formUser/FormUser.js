@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useHistory, history, useParams } from "react-router";
 import { fetchUpdateUser } from "../../services/fetchUpdateUser";
+import { getUser } from "../../services/fetchGetUser";
 import './FormUser.css'
 
 export const FormUser = () => {
@@ -9,8 +10,23 @@ export const FormUser = () => {
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
     const [error, setError] = useState(0);
+    const [user, setUser] = useState([])
 
     let history = useHistory();
+
+    useEffect(async () => {
+        getUserLogged()
+    }, []);
+
+
+    const getUserLogged = async () => {
+        try {
+            let result = await getUser()
+            setUser(result);
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     const getNameChange = (e) => {
         setName(e.target.value);
@@ -56,11 +72,11 @@ export const FormUser = () => {
                     <ul className="flex-outer">
                         <li>
                             <label>Nombre:</label>
-                            <input type="text" placeholder='name' onInput={(e) => getNameChange(e)} />
+                            <input type="text" placeholder={user.name} onInput={(e) => getNameChange(e)} />
                         </li>
                         <li>
                             <label>Email:</label>
-                            <input type="text" placeholder='email' onInput={(e) => getEmailChange(e)} />
+                            <input type="text" placeholder={user.email} onInput={(e) => getEmailChange(e)} />
                         </li>
                         <li>
                             <label>Nueva Contraseña:</label>

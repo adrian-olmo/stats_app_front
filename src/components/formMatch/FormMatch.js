@@ -11,6 +11,8 @@ export const FormMatch = (props) => {
     const [date, setDate] = useState("")
     const [competition_id, setCompetition] = useState("")
 
+
+
     let placeholders = {};
     let history = useHistory()
     let { id } = useParams()
@@ -63,7 +65,7 @@ export const FormMatch = (props) => {
 
                         <li>
                             <label>Fecha del Partido: </label>
-                            <input type="date" onInput={(e) => setDate(e.target.value)} />
+                            <input type="date" defaultValue={placeholders.date} onInput={(e) => setDate(e.target.value)} />
                         </li>
 
                         <li>

@@ -47,7 +47,7 @@ export const UpdateTeam = () => {
         clean(body);
 
         const result = await fetchUpdateTeam(id, body)
-        if (result.message !== 'Updated Succesfully') {
+        if (result.status !== 205) {
             return setError(1)
         }
         history.push('/teams')
@@ -55,6 +55,7 @@ export const UpdateTeam = () => {
 
     return (
         <div className="app-body">
+            
             {detail &&
                 <FormTeam typeCrudAction="UPDATE" id={id} submitFunction={updateDetail} details={detail} message="Actualiza los datos del Equipo" />
             }

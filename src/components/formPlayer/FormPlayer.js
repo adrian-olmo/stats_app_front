@@ -11,6 +11,7 @@ export const FormPlayer = (props) => {
     const [debut, setDebut] = useState("")
     const [team_id, setTeamId] = useState("")
     const [position_id, setPositionId] = useState("")
+
     let placeholders = {};
     let history = useHistory()
     let { id } = useParams()
@@ -37,7 +38,7 @@ export const FormPlayer = (props) => {
             name: 'Nombre y Primer Apellido del jugador P.Ej: Cristiano Ronalo',
             age: 'Edad del jugador P.Ej: 35',
             matches: 'Numero de partidos con la seleccion P.Ej: 150',
-            team_id: 'BANANA',
+            team_id: 'ID del equipo del jugador',
             position_id: 'ID de la posicion del jugador P.EJ: 10 (Delantero)',
         }
     }
@@ -68,7 +69,7 @@ export const FormPlayer = (props) => {
 
                         <li>
                             <label>Fecha Debut: </label>
-                            <input type="date" onInput={(e) => setDebut(e.target.value)} />
+                            <input type="date" defaultValue={placeholders.debut} onInput={(e) => setDebut(e.target.value)} />
                         </li>
 
                         <li>

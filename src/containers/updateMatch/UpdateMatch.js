@@ -10,6 +10,7 @@ export const UpdateMatch = () => {
 
     const [match, setMatch] = useState();
     const [error, setError] = useState(0);
+    const [validate, setValidate] = useState(0)
     let { id } = useParams();
     let history = useHistory();
 
@@ -49,21 +50,20 @@ export const UpdateMatch = () => {
 
 
         const result = await fetchUpdateMatch(id, body)
-        history.push('/matches')
-        /* if (result.message !== 'Updated Succesfully') {
-           return setError(1)
-       } else {
-           return setValidate(1)
-           history.push('/matches')
 
-       } */
+        if (result.message !== 'Updated Succesfully') {
+            return setError(1)
+        } else {
+            return setValidate(1)
+
+        }
 
     }
 
     return (
         <div className="app-body">
-            {/* {error === 1 && <h4>Fallo al actualizar</h4>}
-            {validate === 1 && <h4>Partido Actualizado</h4>} */}
+            {error === 1 && <h4 className='fail'>Fallo al actualizar partido</h4>}
+            {validate === 1 && <h4 className='validate'>Partido actualizado con exito</h4>}
 
             {match &&
                 <FormMatch typeCrudAction="UPDATE" id={id} submitFunction={updateMatch} details={match} message="Actualiza los datos de un partido" />

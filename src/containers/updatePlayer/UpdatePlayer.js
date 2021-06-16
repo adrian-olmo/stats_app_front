@@ -48,23 +48,20 @@ export const UpdatePlayer = () => {
         clean(body);
 
         const result = await fetchUpdatePlayer(id, body)
-        console.log(result);
-        history.push('/teams')
-        /* if (result.message !== 'Updated Succesfully') {
+
+        if (result.message !== 'Updated Succesfully') {
             return setError(1)
         } else {
             return setValidate(1)
-            history.push('/teams')
-
-        } */
+        }
 
 
     }
 
     return (
         <div className="app-body">
-            {/* {error === 1 && <h4>Fallo al actualizar</h4>}
-            {validate === 1 && <h4>Jugador Actualizado</h4>} */}
+            {error === 1 && <h4 className='fail'>Fallo al actualizar jugador</h4>}
+            {validate === 1 && <h4 className='validate'>Jugador actualizado con exito</h4>}
             {
                 player &&
                 <FormPlayer typeCrudAction="UPDATE" id={id} submitFunction={updateDetail} details={player} message="Actualiza los datos del Jugador" />

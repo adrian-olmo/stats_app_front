@@ -10,6 +10,7 @@ export const UpdateTeam = () => {
 
     const [detail, setDetail] = useState();
     const [error, setError] = useState(0);
+    const [validate, setValidate] = useState(0)
     let history = useHistory();
     let { id } = useParams();
 
@@ -60,8 +61,8 @@ export const UpdateTeam = () => {
 
     return (
         <div className="app-body">
-             {/* {error === 1 && <h4>Fallo al actualizar</h4>}
-            {validate === 1 && <h4>Equipo Actualizado</h4>} */}
+            {error === 1 && <h4 className='fail'>Fallo al actualizar equipo</h4>}
+            {validate === 1 && <h4 className='validate'>Equipo actualizado con exito</h4>}
             {detail &&
                 <FormTeam typeCrudAction="UPDATE" id={id} submitFunction={updateDetail} details={detail} message="Actualiza los datos del Equipo" />
             }

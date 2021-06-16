@@ -47,15 +47,21 @@ export const UpdateTeam = () => {
         clean(body);
 
         const result = await fetchUpdateTeam(id, body)
-        if (result.status !== 205) {
-            return setError(1)
-        }
         history.push('/teams')
+        /* if (result.message !== 'Updated Succesfully') {
+           return setError(1)
+       } else {
+           return setValidate(1)
+           history.push('/teams')
+
+       } */
+
     }
 
     return (
         <div className="app-body">
-            
+             {/* {error === 1 && <h4>Fallo al actualizar</h4>}
+            {validate === 1 && <h4>Equipo Actualizado</h4>} */}
             {detail &&
                 <FormTeam typeCrudAction="UPDATE" id={id} submitFunction={updateDetail} details={detail} message="Actualiza los datos del Equipo" />
             }

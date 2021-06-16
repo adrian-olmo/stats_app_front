@@ -10,13 +10,21 @@ export const CreateMatch = (props) => {
 
     const createMatch = async (local_team, visitor_team, stadium, date, competition_id) => {
         const result = await fetchCreateMatch(local_team, visitor_team, stadium, date, competition_id);
-        console.log(result);
         history.push('/matches')
+        /* if (result.message !== 'Created Succesfully') {
+            return setError(1)
+        } else {
+            return setValidate(1)
+             history.push('/matches')
+        
+        } */
 
     }
 
     return (
         <div className="app-body">
+            {/* {error === 1 && <h4>Fallo al crear jugador</h4>}
+            {validate === 1 && <h4>Jugador creado con exito</h4>} */}
             <FormMatch typeCrudAction="CREATE" submitFunction={createMatch} message="Añade un partido al calendario" />
         </div>
     )

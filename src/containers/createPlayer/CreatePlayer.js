@@ -18,20 +18,16 @@ export const CreatePlayer = (props) => {
         /* if (result.message !== 'Created Succesfully') {
             return setError(1)
         } else {
-
             return setValidate(1)
-           
-
+             history.push('/teams')
+        
         } */
-
-
-
     }
 
     return (
         <div className="app-body">
-            {error === 1 && <h4>Fallo al crear jugador</h4>}
-            {validate === 1 && <h4>Jugador creado con exito</h4>}
+            {/* {error === 1 && <h4>Fallo al crear jugador</h4>}
+            {validate === 1 && <h4>Jugador creado con exito</h4>} */}
             <FormPlayer typeCrudAction="CREATE" submitFunction={createPlayer} message="Añade un jugador a la plantilla" />
         </div>
     )

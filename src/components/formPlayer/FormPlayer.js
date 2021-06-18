@@ -74,7 +74,7 @@ export const FormPlayer = (props) => {
 
                         <li>
                             <label >Seleccion Nacional: </label>
-                            <input type="text" placeholder={placeholders.team_id} onInput={(e) => setTeamId(e.target.value)} />
+                            <input type="text" value={placeholders.team_id} onInput={(e) => setTeamId(e.target.value)} />
                         </li>
 
                         <li>

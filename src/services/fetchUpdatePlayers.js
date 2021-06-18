@@ -7,6 +7,7 @@ export const fetchUpdatePlayer = async (id, body) => {
             headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('session') },
             body: JSON.stringify(body)
         })
+        
         return result.json()
 
     } catch (error) {

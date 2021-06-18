@@ -79,7 +79,7 @@ export const FormPlayer = (props) => {
 
                         <li>
                             <label>Posicion: </label>
-                            <input type="text" placeholder={placeholders.position_id} onInput={(e) => setPositionId(e.target.value)} />
+                            <input type="text" value={placeholders.position_id} onInput={(e) => setPositionId(e.target.value)} />
                         </li>
 
                         <br></br>
